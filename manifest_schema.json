@@ -1,0 +1,124 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "RE:cper Theme Manifest v1",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string",
+			"title": "架构版本: v1"
+		},
+		"format_version": {
+			"type": "integer",
+			"enum": [
+				1
+			],
+			"default": 1,
+			"title": "格式版本",
+			"description": "当前版本为 1"
+		},
+		"id": {
+			"type": "string",
+			"title": "主题 ID",
+			"description": "请确保和主题文件夹名称一致\n只能包含字母、数字、下划线和短横线\n长度不超过 10 个字符",
+			"minLength": 1,
+			"maxLength": 10,
+			"pattern": "^[a-zA-Z0-9_-]+$"
+		},
+		"name": {
+			"type": "string",
+			"title": "主题名称"
+		},
+		"desc": {
+			"type": "string",
+			"title": "主题描述"
+		},
+		"icon": {
+			"anyOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "null"
+				}
+			],
+			"title": "主题图标",
+			"description": "填写主题图标的相对路径或 null"
+		},
+		"preview": {
+			"anyOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "null"
+				}
+			],
+			"title": "主题预览图",
+			"description": "填写主题预览图的相对路径或 null"
+		},
+		"authors": {
+			"type": "array",
+			"title": "作者列表",
+			"items": {
+				"anyOf": [
+					{
+						"type": "string",
+						"title": "作者名字"
+					},
+					{
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"title": "名字"
+							},
+							"url": {
+								"anyOf": [
+									{
+										"type": "string",
+										"format": "uri"
+									},
+									{
+										"type": "null"
+									}
+								],
+								"title": "链接",
+								"description": "作者的链接或 null"
+							}
+						},
+						"required": [
+							"name",
+							"url"
+						],
+						"title": "作者信息"
+					}
+				]
+			}
+		},
+		"version": {
+			"type": "string",
+			"title": "主题版本",
+			"default": "1.0.0",
+			"pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
+		},
+		"main": {
+			"type": "string",
+			"title": "主题入口 css 文件",
+			"description": "填写主题入口 css 文件的相对路径",
+			"default": "./main.css",
+			"examples": ["./index.css"],
+			"pattern": "^\\./.*\\.css$"
+		}
+	},
+	"required": [
+		"format_version",
+		"id",
+		"name",
+		"desc",
+		"icon",
+		"preview",
+		"authors",
+		"version",
+		"main"
+	]
+}

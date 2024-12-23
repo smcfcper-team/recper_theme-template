@@ -1,0 +1,23 @@
+/* 主题色 */
+html {
+	--bg-color: ;
+	--color: ;
+}
+
+html[scheme="dark"] {
+	--bg-color: ;
+	--color: ;
+}
+
+/* mcfunction 代码高亮 */
+pre {}
+
+pre .mcf-cmd {}
+
+pre .mcf-arg {}
+
+pre .mcf-note {}
+
+pre .mcf-string {}
+
+pre .mcf-num {}

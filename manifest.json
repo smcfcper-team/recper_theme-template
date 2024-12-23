@@ -1,0 +1,12 @@
+{
+	"$schema": "./manifest_schema.json",
+	"format_version": 1,
+	"id": "template",
+	"name": "模板",
+	"desc": "主题模板",
+	"icon": null,
+	"preview": null,
+	"authors": ["Official"],
+	"version": "1.0.0",
+	"main": "./main.css"
+}
